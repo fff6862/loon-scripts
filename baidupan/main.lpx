@@ -1,0 +1,17 @@
+#!name = 百度网盘签到
+#!desc = 自动获取百度网盘 Cookie，并执行会员成长签到、每日答题和成长值查询
+#!author = Codex
+#!homepage = https://github.com/fff6862/loon-scripts
+#!system = iOS,iPadOS
+#!loon_version = 3.5.1(983)
+#!date = 2026-11-06
+#!tag = 百度网盘,签到
+#!type = normal
+
+[Script]
+request if ${url} ~= /^https:\/\/pan\.baidu\.com\/wap\/svip\/growth\/task(?:[\/?#]|$)/i || ${url} ~= /^https:\/\/pan\.baidu\.com\/.*\/coins\/taskcenter\/signin(?:[\/?#]|$)/i then script("https://raw.githubusercontent.com/fff6862/loon-scripts/main/baidupan/capture.js") with tag="百度网盘凭据捕获", timeout=10
+cron "15 8 * * *" then script("https://raw.githubusercontent.com/fff6862/loon-scripts/main/baidupan/checkin.js") with tag="百度网盘每日签到", timeout=90
+generic then script("https://raw.githubusercontent.com/fff6862/loon-scripts/main/baidupan/checkin.js") with tag="百度网盘手动签到", timeout=90
+
+[Mitm]
+hostname = pan.baidu.com
