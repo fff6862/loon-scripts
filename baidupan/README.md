@@ -8,8 +8,8 @@
 
 ## 安装
 
-1. 将整个文件夹传到 iPhone，保持三个文件位于同一目录。
-2. 在 Loon 中导入 `main.lpx`。
+1. 在 Loon 的插件页面选择“添加订阅”。
+2. 填入 `https://raw.githubusercontent.com/fff6862/loon-scripts/main/baidupan/main.lpx` 并保存。
 3. 在 Loon 的 MitM 设置中生成并安装 CA 证书，然后在 iOS 的“关于本机 → 证书信任设置”中完全信任该证书。
 4. 确认 Loon 的 MitM、脚本和复写功能已经开启。
 
